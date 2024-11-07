@@ -1,0 +1,26 @@
+#include <reg51.h>  // Header file for 8051
+
+void delay(unsigned int time);
+
+void main(void) {
+    // Configure Port 1 as output (optional, as Port 1 is default output on 8051)
+    P1 = 0x00;  // Turn all LEDs off initially
+
+    while (1) {
+        P1 = 0xFF;  // Turn all LEDs on
+        delay(500); // Call delay function for 500 ms
+
+        P1 = 0x00;  // Turn all LEDs off
+        delay(500); // Call delay function for 500 ms
+    }
+}
+
+// Delay function to create a time delay in milliseconds
+void delay(unsigned int time) {
+    unsigned int i, j;
+    for (i = 0; i < time; i++) {
+        for (j = 0; j < 1275; j++) {
+            // This loop generates approximately 1 ms delay
+        }
+    }
+}
